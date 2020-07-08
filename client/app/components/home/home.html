@@ -1,9 +1,8 @@
-<navbar></navbar>
-<header>
-  <hero></hero>
-</header>
 <main>
-  <div>
-    <h1>Found in {{ $ctrl.name }}.html</h1>
+  <div ng-if="vm.image" class="content-box">
+    <img ng-src="https://tradetools.co/wp-content/uploads/2020/06/tradetools-logo.svg" alt="Trade tools">
+    <h2>{{ vm.title }}</h2>
+    <img ng-src="{{ vm.image.download_url }}" alt="{{ vm.image.author }}">
+    <p>www.tradetools.co</p>
   </div>
 </main>
