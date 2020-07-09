@@ -1,15 +1,16 @@
 <main>
   <div ng-if="vm.image" class="content-box">
     <img ng-src="https://tradetools.co/wp-content/uploads/2020/06/tradetools-logo.svg" alt="Trade tools" class="logo">
-    <h2>{{ vm.title }}</h2>
+    
+    <div class="title" ng-bind-html="vm.title" ng-click="vm.activeEditor('title', $event)"></div>
+    
     <img ng-src="{{ vm.image.download_url }}" alt="{{ vm.image.author }}" ng-click="vm.toggleModalImages()" class="cover">
-    <p>www.tradetools.co</p>
+    
+    <p class="link" id="link" ng-bind-html="vm.link" ng-click="vm.activeEditor('link', $event)"></p>
   </div>
-  <div ng-if="vm.modalImages" class="modal">
+  <div ng-if="vm.modalImages" class="modal" ng-click="vm.toggleModalImages()">
     <div class="content">
-      <div class="image" ng-repeat="image in vm.images">
-        <img ng-src="{{ image.download_url }}" alt="{{ image.author }}" ng-click="vm.chooseImage(image.id); vm.toggleModalImages();">
-      </div>
+      <img ng-repeat="image in vm.images" ng-src="{{image.download_url}}" alt="{{ image.author }}" ng-click="vm.chooseImage(image.id); vm.toggleModalImages();">
     </div>
   </div>
 </main>
