@@ -9,6 +9,8 @@ class HomeController {
 
     this.images = [];
     this.image = null;
+
+    this.modalImages = false;
   }
 
   $onInit() {
@@ -29,6 +31,10 @@ class HomeController {
 
   chooseImage(id) {    
     this.image = this.images.find(img => img.id == id);
+  }
+
+  toggleModalImages() {
+    this.modalImages = !this.modalImages;
   }
 }
 
